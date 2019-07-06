@@ -21,8 +21,12 @@ namespace dojosurv.Controllers
         [HttpPost("create")]
         public IActionResult Create(MyModel user)
         {
-            
-            return View("Show", user);
+            if(ModelState.IsValid){
+                return View("Show", user);
+            }
+            else{
+                return View("Index");
+            }
         }
 
         

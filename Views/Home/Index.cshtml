@@ -3,12 +3,16 @@
         <h1>Index Page</h1>
         <h3>Create a User</h3>
         <form action='create' method='post' role="form">
-            <p>Name: <input type='text' name='name'></p>
-            <p>Email: <input type='text' name='email'></p>
+            @model MyModel
+            <span style="color: red;" asp-validation-for="Name"></span>
+            <p>Name: <input asp-for="Name"></p>
+            <span style="color: red;" asp-validation-for="Email"></span>
+            <p>Email: <input asp-for="Email"></p>
 
             <div class="form-group">
                 <label for="locations">Location</label>
-                <select class="form-control" id="locations" name="location">
+                <span style="color: red;" asp-validation-for="Location"></span>
+                <select class="form-control" asp-for="Location">
                     <option>Chitown</option>
                     <option>ATL</option>
                     <option>Compton</option>
@@ -18,23 +22,24 @@
             </div>
             <fieldset class="form-group">
                 <div class="row">
+                    <span style="color: red;" asp-validation-for="Language"></span>
                     <label class="col-form-label col-sm-2 pt-0">Favorite languages</label>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="language" id="pyth" value="python"
+                            <input class="form-check-input" type="radio" asp-for="Language" value="python"
                                 checked>
                             <label class="form-check-label" for="pyth">
                                 Python
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="language" id="cs2" value="css">
+                            <input class="form-check-input" type="radio" asp-for="Language" value="css">
                             <label class="form-check-label" for="cs2">
                                 CSS
                             </label>
                         </div>
                         <div class="form-check disabled">
-                            <input class="form-check-input" type="radio" name="language" id="js" value="javascript">
+                            <input class="form-check-input" type="radio" asp-for="Language"  value="javascript">
                             <label class="form-check-label" for="js">
                                 JavaScript
                             </label>
@@ -42,9 +47,10 @@
                     </div>
                 </div>
             </fieldset>
+            <span style="color: red;" asp-validation-for="Comment"></span>
             <div class="form-group">
                 <label for="comments">Comments Please(Optional)</label>
-                <textarea class="form-control" id="comments" name="comment" rows="3"></textarea>
+                <textarea class="form-control" asp-for="Comment"  rows="3"></textarea>
             </div>
             <p><input type='submit' class="btn btn-dark sp" value='Submit'></p>
         </form>
