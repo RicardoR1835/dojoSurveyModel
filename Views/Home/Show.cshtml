@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="container">
+        <h1 class="display-4">Your Results</h1>
+        <h3>Info Submitted:</h3>
+        @{
+            @using dojosurv.Models
+            @model MyModel
+            <p>Name: @Model.Name</p>
+            <p>Email: @Model.Email</p>
+            <p>Location: @Model.Location</p>
+            <p>Favorite Language: @Model.Language</p>
+            <p>Comments: @Model.Comment</p>
+        }
+    </div>
+</div>
